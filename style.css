@@ -1,0 +1,521 @@
+:root {
+  --primary: #fd2a58;
+  --primary-dark: #e20e0e;
+  --accent: #ff006a;
+  --background: #f4f7fa;
+  --text: #333;
+  --white: #ffffff;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+  padding-top: 60px;
+}
+
+.navbar {
+  background-color: var(--primary);
+  color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 999;
+  box-shadow: var(--shadow);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-logo img {
+  height: 30px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links li a {
+  color: var(--white);
+  text-decoration: none;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.nav-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--white);
+}
+
+/* Mobile View for Navbar */
+.nav-links.active {
+  display: block;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: 100%;
+  background-color: var(--primary);
+  text-align: right;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+}
+
+
+
+/* Sidebar Styles */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: var(--primary);
+  color: var(--white);
+  padding-top: 60px;
+  box-shadow: var(--shadow);
+  z-index: 998;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 1rem 0;
+}
+
+.sidebar ul li a {
+  color: var(--white);
+  text-decoration: none;
+  display: block;
+  padding: 1rem;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+  background-color: var(--accent);
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+}
+
+/* Sidebar collapsible behavior */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: var(--primary);
+  color: var(--white);
+  padding-top: 60px;
+  box-shadow: var(--shadow);
+  z-index: 998;
+  transform: translateX(0); /* Initially visible */
+  transition: transform 0.3s ease;
+}
+
+.sidebar.collapsed {
+  transform: translateX(-100%); /* Hide sidebar */
+}
+
+/* Sidebar toggle button style */
+.sidebar-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--white);
+}
+
+/* Sidebar default (desktop view) */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: var(--primary);
+  color: var(--white);
+  padding-top: 60px;
+  box-shadow: var(--shadow);
+  z-index: 998;
+  transform: translateX(0); /* Shown by default */
+  transition: transform 0.3s ease;
+}
+
+/* Hidden state */
+.sidebar.collapsed {
+  transform: translateX(-100%);
+}
+
+/* Sidebar toggle button */
+.sidebar-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--white);
+  z-index: 1000;
+  display: none;
+}
+
+/* Show toggle button on mobile */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%); /* Hidden by default */
+  }
+
+  .sidebar.collapsed {
+    transform: translateX(0); /* Show when toggled */
+  }
+
+  .sidebar-toggle {
+    display: block;
+  }
+}
+
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+  .sidebar-toggle {
+    display: block;
+  }
+
+  .sidebar {
+    width: 0; /* Sidebar is hidden on mobile by default */
+  }
+
+  .sidebar.collapsed {
+    width: 0; /* Collapse the sidebar completely */
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+  }
+  .nav-toggle {
+    display: block;
+  }
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 100px 20px 40px;
+  background: linear-gradient(to bottom right, var(--primary), var(--accent));
+  color: var(--white);
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* Call-to-Action Button */
+.cta-button {
+  background-color: var(--white);
+  color: var(--primary);
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.cta-button:hover {
+  background-color: var(--primary-dark);
+  color: var(--white);
+}
+
+/* Form Styles */
+.form-container select {
+  appearance: none;
+  background-color: var(--white);
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='%23333' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 7L10 12L15 7H5Z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+  padding-right: 2.5rem; /* space for the arrow */
+  cursor: pointer;
+}
+
+.form-container select:hover {
+  border-color: var(--accent);
+}
+
+.form-container select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 10px rgba(253, 42, 88, 0.3);
+}
+
+.form-container {
+  max-width: 400px;
+  background-color: var(--white);
+  margin: 3rem auto;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.form-container h2 {
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+}
+/* Slider Styles */
+.slider {
+  position: relative;
+  max-width: 100%;
+  margin: 20px auto;
+  overflow: hidden;
+}
+
+.slide-container {
+  display: flex;
+  transition: transform 0.2s ease;
+}
+
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.slide p {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: var(--white);
+  font-size: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: var(--white);
+  font-size: 2rem;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+button:hover {
+  background-color: var(--primary);
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.form-container input,
+.form-container select {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.form-container input:focus,
+.form-container select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 8px rgba(0, 102, 255, 0.3);
+}
+
+.form-container button {
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form-container button:hover {
+  background-color: var(--primary-dark);
+  transform: scale(1.05);
+}
+
+/* Chat Box Styles */
+.chat-box {
+  margin-top: 80px;
+  max-width: 600px;
+  margin: 2rem auto;
+  background-color: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+}
+
+.chat-messages {
+  flex-grow: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+}
+
+.chat-message {
+  padding: 0.7rem 1rem;
+  margin-bottom: 0.8rem;
+  border-radius: 20px;
+  background-color: var(--primary);
+  color: var(--white);
+  max-width: 70%;
+}
+
+.chat-message.self {
+  background-color: var(--accent);
+  align-self: flex-end;
+}
+
+.chat-input {
+  display: flex;
+  padding: 0.5rem;
+  background-color: #fff;
+}
+
+.chat-input input {
+  flex-grow: 1;
+  padding: 0.8rem;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  margin-right: 1rem;
+}
+
+.chat-input button {
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.chat-input button:hover {
+  background-color: var(--primary-dark);
+}
+
+/* Feature List */
+.feature-list {
+  list-style-type: none;
+  padding: 0;
+  font-size: 1.2rem;
+  line-height: 2;
+  text-align: left;
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.feature-list li {
+  margin-bottom: 1rem;
+}
+
+.feature-list li strong {
+  font-weight: bold;
+  color: var(--primary-dark);
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .cta-button {
+    padding: 0.7rem 1.2rem;
+  }
+
+  .form-container {
+    padding: 1.5rem;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: var(--primary);
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    padding: 1rem;
+    text-align: right;
+    box-shadow: var(--shadow);
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
